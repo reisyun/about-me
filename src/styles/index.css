@@ -1,0 +1,231 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  --background-main: #f5fafe;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-active: #7d5fff;
+  --color-primary: #222222;
+  --color-secondary: #666666;
+  --color-hint: #999999;
+}
+
+body {
+  margin: 0 24px;
+  background: var(--background-main, #f5fafe);
+}
+
+/* link(a tag)를 클릭시 방해 됨 */
+object {
+  pointer-events: none;
+}
+
+/***************
+ Common 
+***************/
+
+section {
+  margin-bottom: 48px;
+  padding-top: 32px;
+}
+
+.title {
+  margin: 0 0 32px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+.shadow_box {
+  background: var(--color-white);
+  border-radius: 4px;
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.16);
+  overflow: hidden;
+}
+
+/***************
+ Resume 
+***************/
+
+#resume {
+  display: flex;
+}
+
+.resume__photo {
+  margin-right: 16px;
+  width: 100%;
+  max-width: 240px;
+  height: 320px;
+}
+
+.resume__content {
+  padding: 24px 16px 16px;
+  width: 100%;
+  max-width: 640px;
+  height: 320px;
+}
+
+.resume__content--title {
+  margin-bottom: 16px;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.resume__content--text p {
+  margin-bottom: 8px;
+  line-height: 1.5;
+  word-break: keep-all;
+  color: var(--color-primary);
+}
+
+@media screen and (max-width: 768px) {
+  .resume__photo {
+    display: none;
+  }
+
+  .resume__content {
+    max-width: 100%;
+  }
+}
+
+/***************
+ Project 
+***************/
+
+#project {
+  display: flex;
+  flex-direction: row;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 480px;
+}
+
+.card:not(:last-child) {
+  margin-right: 32px;
+}
+
+.card__image img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.card__content {
+  padding: 16px 16px 0;
+  margin-bottom: 32px;
+}
+
+.card__content--title {
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+.card__content--desc {
+  line-height: 1.5;
+  font-size: 1rem;
+  color: var(--color-secondary);
+  word-break: keep-all;
+}
+
+.card__content--learn {
+  margin-top: 16px;
+}
+
+.card__content--learn li {
+  line-height: 1.5;
+  font-size: 1rem;
+  color: var(--color-secondary);
+  word-break: keep-all;
+}
+
+.card__content--learn li::before {
+  content: "";
+  display: inline-block;
+  margin-right: 8px;
+  width: 2px;
+  height: 16px;
+  background: var(--color-active);
+  vertical-align: middle;
+}
+
+.card__links {
+  display: flex;
+  align-items: center;
+  padding: 0 16px 16px;
+  margin-top: auto;
+}
+
+.card__links a {
+  display: inline-block;
+  margin-right: 8px;
+  width: 24px;
+  height: 24px;
+}
+
+.card__links--nav {
+  padding-right: 16px;
+  font-weight: bold;
+  color: var(--color-active);
+}
+
+@media screen and (max-width: 768px) {
+  #project {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    margin: 32px;
+  }
+}
+
+/***************
+ Skill 
+***************/
+
+#skill {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 64px 32px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item__logo {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  overflow: hidden;
+}
+
+.item__logo img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.item__caption {
+  padding-top: 24px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--color-hint);
+}

@@ -1,0 +1,50 @@
+{
+  "project": [
+    {
+      "id": 1,
+      "title": "Crebutton",
+      "desc": "주어진 컨텐츠를 통해 버튼을 꾸며 최종적으로 CSS 코드로 변환해주는 웹앱",
+      "learn": [
+        "atomic-design 방법론을 통한 컴포넌트 분리",
+        "Redux를 사용하여 상태관리"
+      ],
+      "links": [
+        {
+          "name": "link",
+          "link": "https://reisyun.github.io/crebutton/#/"
+        },
+        {
+          "name": "github",
+          "link": "https://github.com/reisyun/crebutton"
+        },
+        {
+          "name": "figma",
+          "link": "https://www.figma.com/file/z4lED1JybffuuLdipjpQl8/Crebutton"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Loas",
+      "desc": "애니메이션을 탐색하고, 나만의 리스트에 기록해서 공유할 수 있는 서비스",
+      "learn": [
+        "UX를 고려한 디자인",
+        "불필요한 랜더링 최소화 (Reflow)",
+        "라운드 트립 과정 이해",
+        "ER 다이어그램으로 DB설계",
+        "DDD를 지향한 코딩",
+        "크롤러 아키텍처 설계"
+      ],
+      "links": [
+        {
+          "name": "github",
+          "link": "https://github.com/reisyun/loas"
+        },
+        {
+          "name": "figma",
+          "link": "https://www.figma.com/file/QKI5MRP9movd0uqd1qODkH/Loas"
+        }
+      ]
+    }
+  ]
+}

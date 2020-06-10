@@ -1,7 +1,7 @@
 (async function createProjectSection() {
   const projectWrapperEle = document.getElementById("project");
 
-  const project = await fetch("../src/project.json")
+  const project = await fetch("./src/project.json")
     .then((res) => res.json())
     .then(({ project }) => project);
 
@@ -10,7 +10,7 @@
     const linksEle = links.map(
       ({ name, link }) =>
         `<a title="${name}" target="_blank" href="${link}">
-          <object type="image/svg+xml" data="../assets/icons/${name}.svg">
+          <object type="image/svg+xml" data="./assets/icons/${name}.svg">
             ${name}
           </object>
         </a>`
@@ -18,7 +18,7 @@
 
     return `<article class="card shadow_box">
         <div class="card__image">
-          <img src="../assets/images/work/${title}.png" />
+          <img src="./assets/images/work/${title}.png" />
         </div>
         <div class="card__content">
           <h2 class="card__content--title">${title}</h2>
@@ -38,7 +38,7 @@
 (async function createSkillSection() {
   const skillWrapperEle = document.getElementById("skill");
 
-  const skills = await fetch("../skills.json")
+  const skills = await fetch("./skills.json")
     .then((res) => res.json())
     .then((item) => item);
 
@@ -46,7 +46,7 @@
     ({ file, name }) =>
       `<figure class="item">
         <div class="item__logo shadow_box">
-          <img src="../assets/images/skills/${file}" />
+          <img src="./assets/images/skills/${file}" />
         </div>
         <figcaption class="item__caption">${name}</figcaption>
       </figure>`

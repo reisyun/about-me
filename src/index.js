@@ -18,7 +18,7 @@
 
     return `<article class="card shadow_box">
         <div class="card__image">
-          <img src="./assets/images/work/${title}.png" />
+          <img src="./assets/images/work/${title.toLowerCase()}.png" />
         </div>
         <div class="card__content">
           <h2 class="card__content--title">${title}</h2>
@@ -38,7 +38,7 @@
 (async function createSkillSection() {
   const skillWrapperEle = document.getElementById("skill");
 
-  const skills = await fetch("./skills.json")
+  const skills = await fetch("../skills.json")
     .then((res) => res.json())
     .then((item) => item);
 

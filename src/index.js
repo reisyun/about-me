@@ -1,7 +1,7 @@
 (async function createProjectSection() {
   const projectWrapperEle = document.getElementById("project");
 
-  const project = await fetch("./src/data/project.json", {
+  const project = await fetch("./data/project.json", {
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
@@ -44,7 +44,7 @@
 (async function createSkillSection() {
   const skillWrapperEle = document.getElementById("skill");
 
-  const skills = await fetch("./src/data/skills.json", {
+  const skills = await fetch("./data/skills.json", {
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",

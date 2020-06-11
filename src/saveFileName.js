@@ -1,4 +1,5 @@
 const fs = require("fs-extra");
+const path = require("path");
 
 const skillSort = [
   "git",
@@ -26,10 +27,10 @@ const skillSort = [
 ];
 
 async function main() {
-  const findDirPath = "./assets/images/skills";
-  const savedfilePath = "./src/data/skills.json";
+  const FIND_DIR_PATH = path.join(__dirname, "assets/images/skills");
+  const SAVED_FILE_PATH = path.join(__dirname, "data/skills.json");
 
-  const data = await findFilesName(findDirPath);
+  const data = await findFilesName(FIND_DIR_PATH);
 
   const infos = [];
 
@@ -49,7 +50,7 @@ async function main() {
     });
   });
 
-  await convertDataToJson(infos, savedfilePath);
+  await convertDataToJson(infos, SAVED_FILE_PATH);
 }
 
 main();

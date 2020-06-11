@@ -1,4 +1,4 @@
-const { promises: fs } = require("fs");
+const fs = require("fs-extra");
 
 const skillSort = [
   "git",
@@ -26,8 +26,8 @@ const skillSort = [
 ];
 
 async function main() {
-  const findDirPath = "./src/assets/images/skills";
-  const savedfilePath = "./skills.json";
+  const findDirPath = "./assets/images/skills";
+  const savedfilePath = "./src/data/skills.json";
 
   const data = await findFilesName(findDirPath);
 
@@ -49,8 +49,6 @@ async function main() {
     });
   });
 
-  console.log(infos);
-
   await convertDataToJson(infos, savedfilePath);
 }
 
@@ -61,22 +59,23 @@ main();
  * @param {string} dirPath
  * @param {*} encoding
  */
-async function findFilesName(dirPath, encoding = "utf-8") {
+async function findFilesName(dirPath) {
   if (!dirPath || typeof dirPath !== "string") {
     console.error("dirPath required");
   }
 
   try {
-    const files = await fs.readdir(dirPath, { encoding });
+    const files = await fs.readdir(dirPath);
     // 가져올 파일 확장자 지정
     const formatRe = /.(png|jpe?g)$/;
     files.map((file) => {
       if (!formatRe.exec(file)) return;
+      return file;
     });
 
     return files;
   } catch (err) {
-    throw new Erorr(err);
+    throw console.error(err);
   }
 }
 
@@ -92,8 +91,8 @@ async function convertDataToJson(data, filePath = "./test.json") {
   }
 
   try {
-    fs.writeFile(filePath, JSON.stringify(data));
+    await fs.outputJSON(filePath, data);
   } catch (err) {
-    throw new Erorr(err);
+    throw console.error(err);
   }
 }

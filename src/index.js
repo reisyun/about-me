@@ -1,11 +1,17 @@
 (async function createProjectSection() {
   const projectWrapperEle = document.getElementById("project");
 
-  const project = await fetch("./src/project.json")
+  const project = await fetch("./src/data/project.json", {
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  })
     .then((res) => res.json())
-    .then(({ project }) => project);
+    .then(({ project }) => project)
+    .catch(console.error);
 
-  const cardEle = project.map(({ title, desc, learn, links }) => {
+  const templateCardEle = project.map(({ title, desc, learn, links }) => {
     const learnEle = learn.map((text) => `<li>${text}</li>`);
     const linksEle = links.map(
       ({ name, link }) =>
@@ -32,15 +38,21 @@
       </article>`;
   });
 
-  projectWrapperEle.innerHTML = cardEle.join("");
+  projectWrapperEle.innerHTML = templateCardEle.join("");
 })();
 
 (async function createSkillSection() {
   const skillWrapperEle = document.getElementById("skill");
 
-  const skills = await fetch("../skills.json")
+  const skills = await fetch("./src/data/skills.json", {
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  })
     .then((res) => res.json())
-    .then((item) => item);
+    .then((skill) => skill)
+    .catch(console.error);
 
   const templateSkillEle = skills.map(
     ({ file, name }) =>
@@ -51,5 +63,6 @@
         <figcaption class="item__caption">${name}</figcaption>
       </figure>`
   );
+
   skillWrapperEle.innerHTML = templateSkillEle.join("");
 })();

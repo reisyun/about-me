@@ -1,7 +1,7 @@
 const fs = require("fs-extra");
 const path = require("path");
 
-const skillSort = [
+const sortSkill = [
   "git",
   "linux",
   "html5",
@@ -30,36 +30,37 @@ async function main() {
   const FIND_DIR_PATH = path.join(__dirname, "assets/images/skills");
   const SAVED_FILE_PATH = path.join(__dirname, "data/skills.json");
 
-  const data = await findFilesName(FIND_DIR_PATH);
+  try {
+    const data = await findFilesName(FIND_DIR_PATH);
 
-  const infos = [];
+    const infos = [];
 
-  // skillSort의 순서대로 정렬
-  skillSort.map((skill) => {
-    data.map((file) => {
-      // "file.png" => "file"
-      const filename = file.split(".")[0];
-      if (skill === filename) {
-        const info = {
-          // 첫글자 대문자로
-          name: filename[0].toUpperCase() + filename.slice(1),
-          file,
-        };
-        infos.push(info);
-      }
+    // sortSkill에 적힌 순서대로 정렬
+    sortSkill.map((skill) => {
+      data.map((file) => {
+        // "file.png" => "file"
+        const filename = file.split(".")[0];
+        if (skill === filename) {
+          const info = {
+            // 첫글자 대문자로
+            name: filename[0].toUpperCase() + filename.slice(1),
+            file,
+          };
+          infos.push(info);
+        }
+      });
     });
-  });
 
-  await convertDataToJson(infos, SAVED_FILE_PATH);
+    await convertDataToJson(infos, SAVED_FILE_PATH);
+
+    console.log(`Saved complete to "${SAVED_FILE_PATH}"`);
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 main();
 
-/**
- * 디렉토리 내 파일 이름을 정리해 배열로 반환
- * @param {string} dirPath
- * @param {*} encoding
- */
 async function findFilesName(dirPath) {
   if (!dirPath || typeof dirPath !== "string") {
     console.error("dirPath required");
@@ -76,15 +77,10 @@ async function findFilesName(dirPath) {
 
     return files;
   } catch (err) {
-    throw console.error(err);
+    console.error(err);
   }
 }
 
-/**
- * 데이터를 Json형식으로 저장
- * @param {Object} data
- * @param {string} filePath
- */
 async function convertDataToJson(data, filePath = "./test.json") {
   if (!data) return;
   if (!filePath || typeof filePath !== "string") {
@@ -94,6 +90,6 @@ async function convertDataToJson(data, filePath = "./test.json") {
   try {
     await fs.outputJSON(filePath, data);
   } catch (err) {
-    throw console.error(err);
+    console.error(err);
   }
 }

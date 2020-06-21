@@ -15,7 +15,6 @@
 }
 
 body {
-  margin: 0 24px;
   background: var(--background-main, #f5fafe);
 }
 
@@ -27,6 +26,13 @@ object {
 /***************
  Common 
 ***************/
+
+#wrapper {
+  margin: auto;
+  padding: 0 24px;
+  width: 100%;
+  max-width: 960px;
+}
 
 section {
   margin-bottom: 48px;
@@ -65,7 +71,6 @@ section {
 .resume__content {
   padding: 24px 16px 16px;
   width: 100%;
-  max-width: 640px;
   height: 320px;
 }
 

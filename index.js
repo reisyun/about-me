@@ -1,3 +1,5 @@
+"use strict";
+
 async function main() {
   const projectWrapperEle = document.getElementById("project");
   const skillWrapperEle = document.getElementById("skill");

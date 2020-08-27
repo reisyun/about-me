@@ -234,3 +234,22 @@ section {
   font-weight: bold;
   color: var(--color-hint);
 }
+
+/***************
+ Design 
+***************/
+
+#design {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.work--image {
+  margin: 32px 0;
+  width: 100%;
+}
+
+.work--image:first-child {
+  margin-top: 0;
+}

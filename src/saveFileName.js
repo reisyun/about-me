@@ -22,6 +22,7 @@ const sortSkill = [
   "mongodb",
   "python",
   "selenium",
+  "beautifulsoup",
   "scrapy",
   // "photoshop",
   // "ilustrator",
@@ -34,7 +35,6 @@ async function main() {
 
   try {
     const data = await findFilesName(FIND_DIR_PATH);
-
     const infos = [];
 
     // sortSkill에 적힌 순서대로 정렬
@@ -64,16 +64,16 @@ async function main() {
 main();
 
 async function findFilesName(dirPath) {
-  if (!dirPath || typeof dirPath !== "string") {
+  if (!dirPath) {
     console.error("dirPath required");
   }
 
   try {
     const files = await fs.readdir(dirPath);
     // 가져올 파일 확장자 지정
-    const formatRe = /.(png|jpe?g)$/;
+    const formatRegex = /.(png|jpe?g)$/;
     files.map((file) => {
-      if (!formatRe.exec(file)) return;
+      if (!formatRegex.exec(file)) return;
       return file;
     });
 
@@ -84,8 +84,7 @@ async function findFilesName(dirPath) {
 }
 
 async function convertDataToJson(data, filePath = "./test.json") {
-  if (!data) return;
-  if (!filePath || typeof filePath !== "string") {
+  if (!filePath) {
     console.error("filePath required");
   }
 

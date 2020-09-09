@@ -28,13 +28,13 @@ async function fetchJSONData(path) {
 }
 
 /** projects interface
-{
+Array <{
   id: number;
   title: string;
   desc: string;
   learn: string[];
   links: { name: string; link: string }[];
-}
+}> 
 */
 function createCardTemplate(projects = []) {
   const cardTemplate = projects.map(({ title, desc, learn, links }) => {
@@ -69,10 +69,10 @@ function createCardTemplate(projects = []) {
 }
 
 /** skills interface
-{
+Array<{
   name: string;
   file: string;
-}
+}>
 */
 function createSkillTemplate(skills = []) {
   const skillTemplate = skills.map(

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./styles/index.css" />
 
     <script defer src="./index.js"></script>
+    <script defer src="./lazyLoad.js"></script>
   </head>
   <body>
     <main id="wrapper">
@@ -77,41 +78,40 @@
       </section>
       <section>
         <h1 class="title">디자인 작업물</h1>
-        <div id="design">
+        <div id="design" class="lazy-load">
           <img
             class="work--image shadow_box"
-            src="assets/images/design/man-real.jpg"
-            width="100%"
+            data-src="assets/images/design/man-real.jpg"
             alt="man-real"
           />
           <img
             class="work--image shadow_box"
-            src="assets/images/design/man-event.jpg"
+            data-src="assets/images/design/man-event.jpg"
             alt="man-event"
           />
           <img
             class="work--image shadow_box"
-            src="assets/images/design/man-funny1.jpg"
+            data-src="assets/images/design/man-funny1.jpg"
             alt="man-funny1"
           />
           <img
             class="work--image shadow_box"
-            src="assets/images/design/man-funny2.jpg"
+            data-src="assets/images/design/man-funny2.jpg"
             alt="man-funny2"
           />
           <img
             class="work--image shadow_box"
-            src="assets/images/design/man-banner.gif"
+            data-src="assets/images/design/man-banner.gif"
             alt="man-banner"
           />
           <img
             class="work--image shadow_box"
-            src="assets/images/design/sinjeon-banner1.gif"
+            data-src="assets/images/design/sinjeon-banner1.gif"
             alt="sinjeon-banner1"
           />
           <img
             class="work--image shadow_box"
-            src="assets/images/design/sinjeon-banner2.gif"
+            data-src="assets/images/design/sinjeon-banner2.gif"
             alt="sinjeon-banner2"
           />
         </div>

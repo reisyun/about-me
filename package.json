@@ -5,6 +5,8 @@
   "main": "src/index.js",
   "license": "MIT",
   "scripts": {
+    "generate:image": "node ./generateFileNameToJson.js",
+    "predeploy": "yarn generate:image",
     "deploy": "gh-pages -d src"
   },
   "dependencies": {

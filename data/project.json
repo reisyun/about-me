@@ -1,16 +1,12 @@
 [
   {
     "title": "Loas",
-    "desc": "애니메이션을 탐색하고, 나만의 리스트에 기록해서 공유할 수 있는 서비스",
-    "learn": [
-      "UX를 고려한 디자인",
-      "불필요한 렌더링 최소화",
-      "DDD를 지향한 코딩"
-    ],
+    "desc": "애니메이션을 탐색하고, 나만의 목록에 기록해서 공유할 수 있는 서비스",
+    "learn": ["UX를 고려한 디자인", "DDD를 지향한 코딩"],
     "links": [
       {
         "name": "github",
-        "link": "https://github.com/reisyun/loas"
+        "link": "https://github.com/reisyun?tab=repositories&q=loas"
       },
       {
         "name": "figma",
@@ -21,7 +17,7 @@
   {
     "title": "Crebutton",
     "desc": "주어진 컨텐츠를 통해 버튼을 꾸며 최종적으로 CSS 코드로 변환해주는 웹앱",
-    "learn": ["Atomic-design 방법론 참조", "Redux 사용해 상태관리"],
+    "learn": ["Atomic-design 방법론", "Redux로 상태관리"],
     "links": [
       {
         "name": "link",

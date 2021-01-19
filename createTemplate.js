@@ -1,18 +1,20 @@
 "use strict";
 
-async function main() {
-  const projectWrapperEle = document.getElementById("project");
-  const skillWrapperEle = document.getElementById("skill");
+async function createTemplate(elementId, dataPath, template) {
+  const element = document.getElementById(elementId);
 
-  const projectData = await fetchJSONData("./data/project.json");
-  const skillData = await fetchJSONData("./data/skills.json");
-
-  projectWrapperEle.innerHTML = createCardTemplate(projectData);
-  skillWrapperEle.innerHTML = createSkillTemplate(skillData);
+  const data = await fetchJSONData(dataPath);
+  element.innerHTML = template(data);
 }
 
-main();
+createTemplate("project", "./data/project.json", cardTemplate);
+createTemplate("skills", "./data/skills.json", skillsTemplate);
 
+/**
+ * 입력받은 경로의 데이터(JSON)를 자바스크립트 객체로 반환
+ *
+ * @param path
+ */
 async function fetchJSONData(path) {
   const headers = new Headers();
   headers.append("Content-Type", "application/json");
@@ -27,19 +29,26 @@ async function fetchJSONData(path) {
   return data;
 }
 
+/**
+ * Element 배열의 쉼표를 제거
+ *
+ * @param elements
+ */
+const tight = (elements) => elements.join("");
+
 /** projects interface
-Array <{
-  id: number;
-  title: string;
-  desc: string;
-  learn: string[];
-  links: { name: string; link: string }[];
-}> 
+  Array <{
+    id: number;
+    title: string;
+    desc: string;
+    learn: string[];
+    links: { name: string; link: string }[];
+  }> 
 */
-function createCardTemplate(projects = []) {
-  const cardTemplate = projects.map(({ title, desc, learn, links }) => {
-    const learnEle = learn.map((text) => `<li>${text}</li>`);
-    const linksEle = links.map(
+function cardTemplate(projects = []) {
+  const template = projects.map(({ title, desc, learn, links }) => {
+    const learnElement = learn.map((text) => `<li>${text}</li>`);
+    const linksElement = links.map(
       ({ name, link }) =>
         `<a title="${name}" target="_blank" href="${link}">
            <object type="image/svg+xml" data="./assets/icons/${name}.svg">
@@ -56,26 +65,26 @@ function createCardTemplate(projects = []) {
         <div class="card__content">
           <h2 class="card__content--title">${title}</h2>
           <p class="card__content--desc">${desc}</p>
-          <ul class="card__content--learn">${learnEle.join("")}</ul>
+          <ul class="card__content--learn">${tight(learnElement)}</ul>
           </div>
           <div class="card__links">
             <span class="card__links--nav">LINK ▶</span>
-            ${linksEle.join("")}
+            ${tight(linksElement)}
           </div>
       </article>`;
   });
 
-  return cardTemplate.join("");
+  return tight(template);
 }
 
 /** skills interface
-Array<{
-  name: string;
-  file: string;
-}>
+  Array<{
+    name: string;
+    file: string;
+  }>
 */
-function createSkillTemplate(skills = []) {
-  const skillTemplate = skills.map(
+function skillsTemplate(skills = []) {
+  const template = skills.map(
     ({ file, name }) =>
       `<figure class="item">
          <div class="item__logo shadow_box">
@@ -85,5 +94,5 @@ function createSkillTemplate(skills = []) {
        </figure>`
   );
 
-  return skillTemplate.join("");
+  return tight(template);
 }

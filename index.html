@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>AboutMe</title>
-    <meta name="author" content="reisyun" />
-    <meta name="description" content="reisyun의 자기소개" />
+    <meta name="author" content="임정연" />
+    <meta name="description" content="자기소개" />
 
     <link rel="stylesheet" href="./styles/reset.css" />
     <link rel="stylesheet" href="./styles/index.css" />
 
-    <script defer src="./index.js"></script>
-    <script defer src="./lazyLoad.js"></script>
+    <script defer src="./createTemplate.js"></script>
+    <script defer src="./imageLazyload.js"></script>
   </head>
   <body>
     <main id="wrapper">
@@ -22,20 +22,31 @@
         <div id="resume">
           <img class="resume__photo shadow_box" src="./assets/images/me.jpg" />
           <div class="resume__content shadow_box">
-            <h2 class="resume__content--title">적당한 열등감은 나의 에너지</h2>
+            <h2 class="resume__content--title">
+              편리한 서비스를 함께 추구하고 싶습니다.
+            </h2>
             <div class="resume__content--text">
               <p>
-                저는 무언가를 만들 때 개발 분야를 불문하고 학습해 구현하는 걸
-                꺼리지 않습니다.
+                모든 행동의 근본적인 원인은 불편을 해소하고 싶은 욕구라고
+                생각합니다.
               </p>
               <p>
-                주변 사람 도움 없이 독학을 해서 주로 시니어들의 레퍼런스 및
-                코드를 보며 모방을 하고, 좋은 기법을 배워왔습니다. 덕분에 구글링
-                능력과 공식 문서를 보며 학습하는 습관이 생긴 거 같습니다.
+                현재 사람들이 불편을 해소하기 위해 전자 기기에 의존하는 건
+                당연한 일상입니다. 그 일상 속 불편을 해소해 주기 위해 고민을
+                하고 직접 보탬 할 수 있는 개발자는 저에게 매우 매력적이어서 이
+                길을 선택했습니다.
               </p>
               <p>
-                또한 프로젝트를 진행하면 모든 파트를 맡기에 클라이언트뿐만
-                아니라 서버까지 여러 경험을 할 수 있었습니다.
+                <b>
+                  제 궁극적인 목표는 UX를 위해 모든 면에서 보탬 할 수 있는
+                  개발자입니다.
+                </b>
+                만약 모바일 플랫폼이 유리하면 모바일에 관련해 학습할 것이고,
+                추천 시스템이 있어야 한다면 추천 알고리즘을 학습할 것입니다.
+              </p>
+              <p>
+                물론 희망사항일 뿐이지만, 저는 분야를 불문하고 학습하는 걸
+                좋아한다는 것을 강조하고 싶습니다.
               </p>
             </div>
           </div>
@@ -45,40 +56,58 @@
       <section>
         <h1 class="title">개인 프로젝트</h1>
         <div id="project">
-          <!-- <article class="card shadow_box">
-          <div class="card__image">
-            <img src="https://placehold.it/480x280" />
-          </div>
-          <div class="card__content">
-            <h2 class="card__content--title">프로젝트명</h2>
-            <p class="card__content--desc">설명</p>
-            <ul class="card__content--learn">
-              <li>배운점</li>
-            </ul>
-          </div>
-          <div class="card__links">
-            <span class="card__links--nav">LINK ▶</span>
-            <a title="any" target="_blank" href="#">
-              링크
-            </a>
-          </div>
-        </article> -->
-        </div>
+          <!-- 
+          <article class="card shadow_box">
+            <div class="card__image">
+              <img src="https://placehold.it/480x280" />
+            </div>
+            <div class="card__content">
+              <h2 class="card__content--title">프로젝트명</h2>
+              <p class="card__content--desc">설명</p>
+              <ul class="card__content--learn">
+                <li>배운점</li>
+              </ul>
+            </div>
+            <div class="card__links">
+              <span class="card__links--nav">LINK ▶</span>
+              <a title="any" target="_blank" href="#">
+                링크
+              </a>
+            </div>
+          </article> 
+        --></div>
       </section>
       <section>
         <h1 class="title">다룰 줄 아는 기술</h1>
-        <div id="skill">
-          <!-- <figure class="item">
-          <div class="item__logo shadow_box">
-            <img src="https:placehold.it/200x200" />
-          </div>
-          <figcaption class="item__caption">이름</figcaption>
-        </figure> -->
-        </div>
+        <div id="skills">
+          <!-- 
+          <figure class="item">
+            <div class="item__logo shadow_box">
+              <img src="https:placehold.it/200x200" />
+            </div>
+            <figcaption class="item__caption">이름</figcaption>
+          </figure> 
+        --></div>
       </section>
       <section>
         <h1 class="title">디자인 작업물</h1>
+        <!-- Lazy loading -->
         <div id="design" class="lazy-load">
+          <img
+            class="work--image shadow_box"
+            data-src="assets/images/design/loas.png"
+            alt="sixsense"
+          />
+          <img
+            class="work--image shadow_box"
+            data-src="assets/images/design/sixsense.png"
+            alt="sixsense"
+          />
+          <img
+            class="work--image shadow_box"
+            data-src="assets/images/design/crebutton.png"
+            alt="sixsense"
+          />
           <img
             class="work--image shadow_box"
             data-src="assets/images/design/man-real.jpg"
@@ -91,28 +120,13 @@
           />
           <img
             class="work--image shadow_box"
-            data-src="assets/images/design/man-funny1.jpg"
-            alt="man-funny1"
-          />
-          <img
-            class="work--image shadow_box"
-            data-src="assets/images/design/man-funny2.jpg"
-            alt="man-funny2"
-          />
-          <img
-            class="work--image shadow_box"
             data-src="assets/images/design/man-banner.gif"
             alt="man-banner"
           />
           <img
             class="work--image shadow_box"
-            data-src="assets/images/design/sinjeon-banner1.gif"
-            alt="sinjeon-banner1"
-          />
-          <img
-            class="work--image shadow_box"
-            data-src="assets/images/design/sinjeon-banner2.gif"
-            alt="sinjeon-banner2"
+            data-src="assets/images/design/sinjeon-banner.gif"
+            alt="sinjeon-banner"
           />
         </div>
       </section>

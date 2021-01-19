@@ -87,6 +87,10 @@ section {
   color: var(--color-primary);
 }
 
+.resume__content--text b {
+  font-weight: bold;
+}
+
 @media screen and (max-width: 768px) {
   .resume__photo {
     display: none;
@@ -197,10 +201,10 @@ section {
 }
 
 /***************
- Skill 
+ Skills 
 ***************/
 
-#skill {
+#skills {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 64px 32px;

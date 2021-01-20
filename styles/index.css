@@ -80,7 +80,7 @@ section {
   font-weight: bold;
 }
 
-.resume__content--text p {
+.resume__content--text > * {
   margin-bottom: 8px;
   line-height: 1.5;
   word-break: keep-all;
@@ -98,6 +98,7 @@ section {
 
   .resume__content {
     max-width: 100%;
+    height: auto;
   }
 }
 

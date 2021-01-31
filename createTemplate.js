@@ -60,7 +60,7 @@ function cardTemplate(projects = []) {
     return `
       <article class="card shadow_box">
         <div class="card__image">
-          <img src="./assets/images/work/${title.toLowerCase()}.png" />
+          <img src="./assets/images/design/${title.toLowerCase()}.png" />
         </div>
         <div class="card__content">
           <h2 class="card__content--title">${title}</h2>
